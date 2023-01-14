@@ -17,6 +17,7 @@ struct ReusablePostView: View {
     @State private var isFetching: Bool = true
     //MARK: Pagination
     @State private var paginationDoc: QueryDocumentSnapshot?
+   
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack {
@@ -43,6 +44,13 @@ struct ReusablePostView: View {
             }
             .padding(15)
        }
+        //MARK: Scrolling- TODO
+        .simultaneousGesture(
+               DragGesture().onChanged({
+                   let isScrollDown = 0 < $0.translation.height
+                   print(isScrollDown)
+               }))
+       
         .refreshable {
             /// Scroll to Refresh
             /// Disabling Refresh for UID based Posts
@@ -59,6 +67,7 @@ struct ReusablePostView: View {
             guard posts.isEmpty else {return}
             await fetchPosts()
         }
+        
     }
     //MARK: Displaying Fetched Posts
     @ViewBuilder
@@ -90,6 +99,7 @@ struct ReusablePostView: View {
                     }
                 }
             }
+            
             Divider()
                 .padding(.horizontal, -15)
 

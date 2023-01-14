@@ -20,14 +20,21 @@ struct PostCardView: View {
     @AppStorage("user_UID") private var userUID: String = ""
     //MARK: For Live Updates
     @State private var docListener: ListenerRegistration?
+    // Enlagre Image
+    @State private var selected: Bool = false
+    // MARK: Post on screen
+    @State var onScreen: Bool = false
     
     var body: some View {
         HStack(alignment: .top, spacing: 25) {
-            WebImage(url: post.userProfileURL)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 35, height: 35)
-                .clipShape(Circle())
+            ZStack {
+                WebImage(url: post.userProfileURL)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 35, height: 35)
+                    .clipShape(Circle())
+                    .glow(color: .purple, radius: 36)
+            }
             VStack(alignment: .leading, spacing: 6) {
                 Text(post.username)
                     .font(.callout)
@@ -38,6 +45,7 @@ struct PostCardView: View {
                 Text(post.text)
                     .textSelection(.enabled)
                     .padding(.vertical, 8)
+                    .glow(color: .gray, radius: 36)
                 /// Post Image if Any
                 if let postImageURL = post.imageURL {
                     GeometryReader {
@@ -46,14 +54,34 @@ struct PostCardView: View {
                             .resizable()
                             .aspectRatio( contentMode: .fill)
                             .frame(width: size.width, height: size.height)
+                        
                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            .glow(color: .purple, radius: 36)
+                        
+                            .onTapGesture {
+                                
+                                    withAnimation(.easeInOut) {
+                                        selected.toggle()
+                                    }
+                                
+                                    
+                            }
+                            .scaleEffect(self.selected && onScreen ? 1.5 : 1)
+                      
                     }
-                    .frame(height: 200)
+                    .frame(height: 400)
+                    
                     
                 }
                 PostInteraction()
                 
             }
+            .onDisappear{
+                selected = false
+            }
+           
+ 
+            
             
             
         }
@@ -78,6 +106,7 @@ struct PostCardView: View {
             
         })
         .onAppear{
+            onScreen = true
             /*
              When the post is visible on the screen
              the document listener is added
@@ -115,7 +144,7 @@ struct PostCardView: View {
                 docListener.remove()
                 self.docListener = nil
             }
-            
+            onScreen = false
         }
     }
     //Mark: Like/ Dislike Interaction

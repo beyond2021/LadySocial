@@ -31,6 +31,7 @@
 		224B602A2964951B00168A2E /* ReusablePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B60292964951B00168A2E /* ReusablePostView.swift */; };
 		224B602C2964BAB700168A2E /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B602B2964BAB700168A2E /* PostCardView.swift */; };
 		22CA2EFD296E04C0000D677E /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA2EFC296E04C0000D677E /* SearchUserView.swift */; };
+		22D4DA8B29730CF500EFA4B5 /* TestViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4DA8A29730CF500EFA4B5 /* TestViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		224B60292964951B00168A2E /* ReusablePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePostView.swift; sourceTree = "<group>"; };
 		224B602B2964BAB700168A2E /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
 		22CA2EFC296E04C0000D677E /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
+		22D4DA8A29730CF500EFA4B5 /* TestViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				2244D104294BBA00002449EF /* MainView */,
 				2234C9C32944743B00DE840C /* Login */,
 				2234C9D22948755700DE840C /* LoadingView.swift */,
+				22D4DA8A29730CF500EFA4B5 /* TestViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				2234C9B12943834800DE840C /* ContentView.swift in Sources */,
 				2244D109294BBB8B002449EF /* View+extensions.swift in Sources */,
 				224B6024295E8DBA00168A2E /* CreateNewPost.swift in Sources */,
+				22D4DA8B29730CF500EFA4B5 /* TestViews.swift in Sources */,
 				2244D106294BBA44002449EF /* RegisterView.swift in Sources */,
 				2234C9D32948755700DE840C /* LoadingView.swift in Sources */,
 				224B602C2964BAB700168A2E /* PostCardView.swift in Sources */,
@@ -427,7 +431,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beyond2021.SocialMediaKeev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -459,7 +463,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beyond2021.SocialMediaKeev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
