@@ -30,6 +30,8 @@
 		224B60282962675900168A2E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B60272962675900168A2E /* PostView.swift */; };
 		224B602A2964951B00168A2E /* ReusablePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B60292964951B00168A2E /* ReusablePostView.swift */; };
 		224B602C2964BAB700168A2E /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B602B2964BAB700168A2E /* PostCardView.swift */; };
+		22BB5AF32990065800A8BD06 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB5AF22990065800A8BD06 /* CustomNavBar.swift */; };
+		22BB5AF629902A6C00A8BD06 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB5AF529902A6C00A8BD06 /* HeaderView.swift */; };
 		22CA2EFD296E04C0000D677E /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA2EFC296E04C0000D677E /* SearchUserView.swift */; };
 		22D216A72985B879000DC391 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 22D216A62985B879000DC391 /* FirebaseMessaging */; };
 		22D216A92985B889000DC391 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 22D216A82985B889000DC391 /* FirebaseAnalytics */; };
@@ -37,7 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2234C9AB2943834800DE840C /* SocialMediaKeev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialMediaKeev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2234C9AB2943834800DE840C /* LadySocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LadySocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2234C9AE2943834800DE840C /* SocialMediaKeevApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaKeevApp.swift; sourceTree = "<group>"; };
 		2234C9B02943834800DE840C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2234C9B52943834900DE840C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -56,6 +58,8 @@
 		224B60272962675900168A2E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		224B60292964951B00168A2E /* ReusablePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePostView.swift; sourceTree = "<group>"; };
 		224B602B2964BAB700168A2E /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
+		22BB5AF22990065800A8BD06 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
+		22BB5AF529902A6C00A8BD06 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		22CA2EFC296E04C0000D677E /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
 		22D216AA2985BC08000DC391 /* SocialMediaKeev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialMediaKeev.entitlements; sourceTree = "<group>"; };
 		22D216AB2985BC1C000DC391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -92,7 +96,7 @@
 		2234C9AC2943834800DE840C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2234C9AB2943834800DE840C /* SocialMediaKeev.app */,
+				2234C9AB2943834800DE840C /* LadySocial.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +128,8 @@
 		2234C9C12944741900DE840C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22BB5AF429902A4100A8BD06 /* HeaderView */,
+				22BB5AF12990061900A8BD06 /* CustomNavBar */,
 				2244D107294BBB5C002449EF /* Helpers */,
 				2244D104294BBA00002449EF /* MainView */,
 				2234C9C32944743B00DE840C /* Login */,
@@ -197,12 +203,28 @@
 			path = ProfileView;
 			sourceTree = "<group>";
 		};
+		22BB5AF12990061900A8BD06 /* CustomNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				22BB5AF22990065800A8BD06 /* CustomNavBar.swift */,
+			);
+			path = CustomNavBar;
+			sourceTree = "<group>";
+		};
+		22BB5AF429902A4100A8BD06 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				22BB5AF529902A6C00A8BD06 /* HeaderView.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2234C9AA2943834800DE840C /* SocialMediaKeev */ = {
+		2234C9AA2943834800DE840C /* LadySocial */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2234C9B92943834900DE840C /* Build configuration list for PBXNativeTarget "SocialMediaKeev" */;
+			buildConfigurationList = 2234C9B92943834900DE840C /* Build configuration list for PBXNativeTarget "LadySocial" */;
 			buildPhases = (
 				2234C9A72943834800DE840C /* Sources */,
 				2234C9A82943834800DE840C /* Frameworks */,
@@ -212,7 +234,7 @@
 			);
 			dependencies = (
 			);
-			name = SocialMediaKeev;
+			name = LadySocial;
 			packageProductDependencies = (
 				2234C9BF294473EB00DE840C /* FirebaseAuth */,
 				2234C9CA294685F900DE840C /* FirebaseFirestore */,
@@ -223,7 +245,7 @@
 				22D216A82985B889000DC391 /* FirebaseAnalytics */,
 			);
 			productName = SocialMediaKeev;
-			productReference = 2234C9AB2943834800DE840C /* SocialMediaKeev.app */;
+			productReference = 2234C9AB2943834800DE840C /* LadySocial.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -241,7 +263,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2234C9A62943834800DE840C /* Build configuration list for PBXProject "SocialMediaKeev" */;
+			buildConfigurationList = 2234C9A62943834800DE840C /* Build configuration list for PBXProject "LadySocial" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -258,7 +280,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2234C9AA2943834800DE840C /* SocialMediaKeev */,
+				2234C9AA2943834800DE840C /* LadySocial */,
 			);
 		};
 /* End PBXProject section */
@@ -287,12 +309,14 @@
 				224B6026295E8E3600168A2E /* Post.swift in Sources */,
 				2244D10B294BBC17002449EF /* MainView.swift in Sources */,
 				224B602A2964951B00168A2E /* ReusablePostView.swift in Sources */,
+				22BB5AF629902A6C00A8BD06 /* HeaderView.swift in Sources */,
 				2234C9C62944746E00DE840C /* LoginView.swift in Sources */,
 				2234C9B12943834800DE840C /* ContentView.swift in Sources */,
 				2244D109294BBB8B002449EF /* View+extensions.swift in Sources */,
 				224B6024295E8DBA00168A2E /* CreateNewPost.swift in Sources */,
 				22D4DA8B29730CF500EFA4B5 /* TestViews.swift in Sources */,
 				2244D106294BBA44002449EF /* RegisterView.swift in Sources */,
+				22BB5AF32990065800A8BD06 /* CustomNavBar.swift in Sources */,
 				2234C9D32948755700DE840C /* LoadingView.swift in Sources */,
 				224B602C2964BAB700168A2E /* PostCardView.swift in Sources */,
 				224B60282962675900168A2E /* PostView.swift in Sources */,
@@ -489,7 +513,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2234C9A62943834800DE840C /* Build configuration list for PBXProject "SocialMediaKeev" */ = {
+		2234C9A62943834800DE840C /* Build configuration list for PBXProject "LadySocial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2234C9B72943834900DE840C /* Debug */,
@@ -498,7 +522,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2234C9B92943834900DE840C /* Build configuration list for PBXNativeTarget "SocialMediaKeev" */ = {
+		2234C9B92943834900DE840C /* Build configuration list for PBXNativeTarget "LadySocial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2234C9BA2943834900DE840C /* Debug */,

@@ -12,6 +12,7 @@ struct PostView: View {
     @State private var createNewPost: Bool = false
     var body: some View {
         NavigationStack {
+       //     HeaderView()
             ReusablePostView(posts:  $recentPost)
                 .hAlign(.center)
                 .vAlign(.center)
@@ -43,7 +44,19 @@ struct PostView: View {
 
                     }
                 })
+                .toolbarBackground(
+
+                                // 1
+                                Color.purple,
+                                // 2
+                                for: .navigationBar)
+            
+                        
                 .navigationTitle("Posts")
+                .navigationBarHidden(true)
+                
+            
+            
             
         }
         .fullScreenCover(isPresented: $createNewPost) {
@@ -56,6 +69,7 @@ struct PostView: View {
         
         
     }
+    
 }
 
 struct PostView_Previews: PreviewProvider {

@@ -20,6 +20,7 @@ struct ReusablePostView: View {
    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
+            HeaderView()
             LazyVStack {
                 if isFetching {
                     ProgressView()
