@@ -31,6 +31,8 @@
 		224B602A2964951B00168A2E /* ReusablePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B60292964951B00168A2E /* ReusablePostView.swift */; };
 		224B602C2964BAB700168A2E /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B602B2964BAB700168A2E /* PostCardView.swift */; };
 		22CA2EFD296E04C0000D677E /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA2EFC296E04C0000D677E /* SearchUserView.swift */; };
+		22D216A72985B879000DC391 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 22D216A62985B879000DC391 /* FirebaseMessaging */; };
+		22D216A92985B889000DC391 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 22D216A82985B889000DC391 /* FirebaseAnalytics */; };
 		22D4DA8B29730CF500EFA4B5 /* TestViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4DA8A29730CF500EFA4B5 /* TestViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		224B60292964951B00168A2E /* ReusablePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePostView.swift; sourceTree = "<group>"; };
 		224B602B2964BAB700168A2E /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
 		22CA2EFC296E04C0000D677E /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
+		22D216AA2985BC08000DC391 /* SocialMediaKeev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialMediaKeev.entitlements; sourceTree = "<group>"; };
+		22D216AB2985BC1C000DC391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		22D4DA8A29730CF500EFA4B5 /* TestViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D216A92985B889000DC391 /* FirebaseAnalytics in Frameworks */,
+				22D216A72985B879000DC391 /* FirebaseMessaging in Frameworks */,
 				224ADDC5294BECD3001D79B2 /* SDWebImageSwiftUI in Frameworks */,
 				2234C9C0294473EB00DE840C /* FirebaseAuth in Frameworks */,
 				2234C9CB294685F900DE840C /* FirebaseFirestore in Frameworks */,
@@ -94,6 +100,8 @@
 		2234C9AD2943834800DE840C /* SocialMediaKeev */ = {
 			isa = PBXGroup;
 			children = (
+				22D216AB2985BC1C000DC391 /* Info.plist */,
+				22D216AA2985BC08000DC391 /* SocialMediaKeev.entitlements */,
 				2234C9C22944742800DE840C /* Model */,
 				2234C9C12944741900DE840C /* Views */,
 				2234C9AE2943834800DE840C /* SocialMediaKeevApp.swift */,
@@ -211,6 +219,8 @@
 				2234C9CC2946861900DE840C /* FirebaseStorage */,
 				2234C9CE2946863400DE840C /* FirebaseFirestoreSwift */,
 				224ADDC4294BECD3001D79B2 /* SDWebImageSwiftUI */,
+				22D216A62985B879000DC391 /* FirebaseMessaging */,
+				22D216A82985B889000DC391 /* FirebaseAnalytics */,
 			);
 			productName = SocialMediaKeev;
 			productReference = 2234C9AB2943834800DE840C /* SocialMediaKeev.app */;
@@ -413,12 +423,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SocialMediaKeev/SocialMediaKeev.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SocialMediaKeev/Preview Content\"";
 				DEVELOPMENT_TEAM = SC6R6MV2N8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SocialMediaKeev/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app lets you browse you photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app lets you browse you photo library";
@@ -445,12 +457,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SocialMediaKeev/SocialMediaKeev.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SocialMediaKeev/Preview Content\"";
 				DEVELOPMENT_TEAM = SC6R6MV2N8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SocialMediaKeev/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app lets you browse you photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app lets you browse you photo library";
@@ -539,6 +553,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 224ADDC3294BECD3001D79B2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		22D216A62985B879000DC391 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2234C9BE294473EB00DE840C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		22D216A82985B889000DC391 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2234C9BE294473EB00DE840C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -32,7 +32,7 @@ struct PostCardView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 35, height: 35)
-                    .clipShape(Circle())
+                    .clipShape(Circle()) .padding()
                     .glow(color: .purple, radius: 36)
             }
             VStack(alignment: .leading, spacing: 6) {
@@ -54,9 +54,12 @@ struct PostCardView: View {
                             .resizable()
                             .aspectRatio( contentMode: .fill)
                             .frame(width: size.width, height: size.height)
+                           
+                        
                         
                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .glow(color: .purple, radius: 36)
+                            
+                           // .glow(color: .purple, radius: 36)
                         
                             .onTapGesture {
                                 
