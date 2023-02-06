@@ -54,12 +54,11 @@ struct PostCardView: View {
                             .resizable()
                             .aspectRatio( contentMode: .fill)
                             .frame(width: size.width, height: size.height)
-                           
-                        
-                        
+                    
                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                             
-                           // .glow(color: .purple, radius: 36)
+                           .glow(color: .purple, radius: 36)
+                          
                         
                             .onTapGesture {
                                 
@@ -76,15 +75,14 @@ struct PostCardView: View {
                     
                     
                 }
+                    
                 PostInteraction()
+                    .padding(.top, 15)
                 
             }
             .onDisappear{
                 selected = false
             }
-           
- 
-            
             
             
         }
@@ -193,8 +191,11 @@ struct PostCardView: View {
      the UID must be moved frm the liked array list to the disliked array list
      */
     func likePost() {
+        // TODO send notification
+        
         Task {
             guard let postID = post.id else { return }
+            postLikeNotification(postID: String)
             if post.likedIDs.contains(userUID) {
                 try await Firestore.firestore().collection("Posts").document(postID).updateData([
                     "likedIDs": FieldValue.arrayRemove([userUID])
@@ -252,6 +253,12 @@ struct PostCardView: View {
             }
             
         }
+    }
+    //MARK: Post Notification
+    func postLikeNotification(postID: String) {
+        // 1: Get the user id from the postid
+        
+        // 2: send notification to the user device
     }
     
 }
