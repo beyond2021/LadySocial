@@ -195,7 +195,7 @@ struct PostCardView: View {
         
         Task {
             guard let postID = post.id else { return }
-            postLikeNotification(postID: String)
+            postLikeNotification(postID: postID)
             if post.likedIDs.contains(userUID) {
                 try await Firestore.firestore().collection("Posts").document(postID).updateData([
                     "likedIDs": FieldValue.arrayRemove([userUID])
