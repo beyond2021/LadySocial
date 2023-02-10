@@ -7,8 +7,10 @@
 
 import SwiftUI
 import FirebaseFirestoreSwift // NEEDED IN THE MODEL
+import FirebaseAuth
 
-struct User: Identifiable, Codable {
+
+struct User: Identifiable, Codable, Hashable {
     @DocumentID var id: String?
     var username: String
     var userBio: String
@@ -17,6 +19,8 @@ struct User: Identifiable, Codable {
     var userEmail: String
     var userProfileURL: URL
     var bookmarked: [String] = []
+    var followingIDs: [String] = []
+    var followersIDs: [String] = []
     enum CodingKeys: CodingKey {
         case id
         case username
@@ -26,5 +30,11 @@ struct User: Identifiable, Codable {
         case userEmail
         case bookmarked
         case userProfileURL
+        case followingIDs
+        case followersIDs
     }
+//    var isCurrentUser: Bool {
+//        return ((Auth.auth().currentUser?) != nil)
+//    }
+  
 }

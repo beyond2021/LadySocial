@@ -25,7 +25,7 @@ struct PostView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                             .padding(13)
-                            .background(.black, in:Circle())
+                            .background(.purple, in:Circle())
                     }
                     .padding(15)
                     

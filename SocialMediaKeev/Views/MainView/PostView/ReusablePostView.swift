@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 struct ReusablePostView: View {
     var basedOnUID: Bool = false
+    var showHeader: Bool = false
     var uid: String = ""
     @Binding var posts:[Post]
     //MARK: View Properties
@@ -20,6 +21,33 @@ struct ReusablePostView: View {
    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
+            if showHeader {
+                LazyVStack {
+                    if isFetching {
+                        ProgressView()
+                            .padding(.top, 30)
+                        
+                    } else {
+                        if posts.isEmpty {
+                            /// No post found on firebase
+                            Text("No Posts Found")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                                .padding(.top, 38)
+                            
+                        } else {
+                            /// Display post
+                            Posts()
+                        }
+                        
+                        
+                    }
+                    
+                }
+                .padding(15)
+                
+                
+            }
             HeaderView()
             LazyVStack {
                 if isFetching {

@@ -9,12 +9,15 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ReusableProfileContent: View {
+    
     var user: User
     @State private var fetchedPosts:[Post] = []
+    @State var showHeader: Bool = false
+    //var isFollowed: Bool = 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack {
-                HStack(spacing: 12) {
+                HStack(spacing: 20) {
                     WebImage(url: user.userProfileURL).placeholder{
                     // MARK: Placeholder Image
                     Image("NullProfile")
@@ -24,6 +27,7 @@ struct ReusableProfileContent: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 100, height:  100)
                 .clipShape(Circle())
+                .glow(color: .purple, radius: 36)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text(user.username)
@@ -53,11 +57,14 @@ struct ReusableProfileContent: View {
                     .foregroundColor(.black)
                     .hAlign(.leading)
                     .padding(.vertical, 15)
+                // Action Button
+                ProfileActionButtonView(user: user)
+                    .padding(.bottom, 15)
                 /*
                  This is why we create a reuable post view.
                  It fetches all the post associated with the user
                  */
-                ReusablePostView(basedOnUID: true, uid: user.userUID, posts: $fetchedPosts)
+                ReusablePostView(basedOnUID: true, showHeader:  false, uid: user.userUID, posts: $fetchedPosts)
                 
             }
             .padding(15)

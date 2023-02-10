@@ -13,6 +13,7 @@ import FirebaseStorage
 
 struct PostCardView: View {
     var post: Post
+   
     //MARK: Callbacks
     var onUpdate: (Post) -> ()
     var onDelete: () -> ()
@@ -28,12 +29,18 @@ struct PostCardView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 25) {
             ZStack {
-                WebImage(url: post.userProfileURL)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 35, height: 35)
-                    .clipShape(Circle()) .padding()
-                    .glow(color: .purple, radius: 36)
+                NavigationLink(destination:ProfileView(userID: post.userUID)){
+                    
+                    WebImage(url: post.userProfileURL)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 35, height: 35)
+                        .clipShape(Circle()) .padding()
+                        .glow(color: .teal, radius: 36)
+//                        .onTapGesture {
+//                            print("Launch Profile")
+//                        }
+                }
             }
             VStack(alignment: .leading, spacing: 6) {
                 Text(post.username)
@@ -46,6 +53,7 @@ struct PostCardView: View {
                     .textSelection(.enabled)
                     .padding(.vertical, 8)
                     .glow(color: .gray, radius: 36)
+                    .padding(.bottom, 15)
                 /// Post Image if Any
                 if let postImageURL = post.imageURL {
                     GeometryReader {
@@ -154,6 +162,7 @@ struct PostCardView: View {
         HStack(spacing: 6) {
             Button(action: likePost) {
                 Image(systemName: post.likedIDs.contains(userUID)  ? "hand.thumbsup.fill" : "hand.thumbsup")
+                    .foregroundColor(.teal)
                 
             }
             Text("\(post.likedIDs.count)")
@@ -164,6 +173,7 @@ struct PostCardView: View {
             Button(action: dislikePost) {
                
                 Image(systemName: post.dislikedIDs.contains(userUID)  ? "hand.thumbsdown.fill" : "hand.thumbsdown")
+                    .foregroundColor(.teal)
                 
             }
             Text("\(post.dislikedIDs.count)")
@@ -179,7 +189,7 @@ struct PostCardView: View {
             }
 
         }
-        .foregroundColor(.black)
+        .foregroundColor(.teal)
         .padding(.vertical, 8)
         
     }

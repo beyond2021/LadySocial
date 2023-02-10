@@ -23,7 +23,7 @@ struct MainView: View {
                 }
         }
         // MARK: Changing Tab Label tint
-        .tint(.black)
+        .tint(.teal)
     }
 }
 

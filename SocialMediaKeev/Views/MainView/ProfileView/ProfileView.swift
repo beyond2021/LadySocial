@@ -12,7 +12,7 @@ import FirebaseStorage
 import FirebaseFirestore
 
 struct ProfileView: View {
-    
+    var userID: String = ""
     //MARK: My Profile Data
     @State private var myProfile: User?
     @AppStorage("log_status") var logStatus: Bool = false
@@ -20,21 +20,54 @@ struct ProfileView: View {
     @State var errorMessage: String = ""
     @State var showError: Bool = false
     @State var isLoading: Bool = false
+    @State var showHeader: Bool = false
+    
+    var currentUserID: String {
+        return Auth.auth().currentUser?.uid ?? ""
+    }
     var body: some View {
         NavigationStack {
             VStack {
-                if  let myProfile  {
-                    ReusableProfileContent(user: myProfile)
-                        .refreshable {
-                            // MARK: Refresh User Data
-                            self.myProfile = nil
-                            await fetchUserData()
-                            
-                        }
+                Text(userID)
+                Text(currentUserID)
+                Text(myProfile?.userUID ?? "")
+                if userID == Auth.auth().currentUser?.uid {
+                   
                     
+                    if  let myProfile  {
+                        Text(" Current User")
+                        ReusableProfileContent(user: myProfile)
+                            .refreshable {
+                                // MARK: Refresh User Data
+                                self.myProfile = nil
+                                await fetchUserData(userID: currentUserID)
+                                
+                            }
+                        
+                    } else {
+                        ProgressView()
+                    }
                 } else {
-                    ProgressView()
+                    Text("Not Current User")
+                    
+                    if  let myProfile  {
+                        
+                        ReusableProfileContent(user: myProfile)
+                            .refreshable {
+                                // MARK: Refresh User Data
+                                self.myProfile = nil
+                              await fetchUserData(userID: userID)
+                                
+                            }
+                        
+                    } else {
+                        ProgressView()
+                    }
+                    
+                    
                 }
+           
+                
             }
             .navigationTitle("My Profile")
             .toolbar {
@@ -67,20 +100,23 @@ struct ProfileView: View {
             // this modifier is like on appear
             // So fetching for the first time only
             if myProfile != nil {return}
-            await fetchUserData()
+            if userID == "" {
+                await fetchUserData(userID: currentUserID)
+            } else {
+                await fetchUserData(userID: userID)
+            }
         }
     }
     // MARK: Fetching user data
-    func fetchUserData() async {
-        guard let userUID = Auth.auth().currentUser?.uid else {return}
-        guard let user = try? await Firestore.firestore().collection("users").document(userUID).getDocument(as: User.self) else {return}
+    func fetchUserData(userID: String) async {
+       // guard let userUID = Auth.auth().currentUser?.uid else {return}
+        guard let user = try? await Firestore.firestore().collection("users").document(userID).getDocument(as: User.self) else {return}
         //MAIN THREAD
         await MainActor.run(body: {
             myProfile = user
         })
-        
-        
     }
+   
     // MARK: Logging User Out
     func logOutUser() {
         try? Auth.auth().signOut()

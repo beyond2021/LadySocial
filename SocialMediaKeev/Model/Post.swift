@@ -18,11 +18,11 @@ struct Post: Identifiable, Codable, Equatable, Hashable {
     var publishedDate: Date = Date()
     var likedIDs: [String] = []
     var dislikedIDs: [String] = []
-//    var bookmarkedIDs: [String] = []
     // MARK: Basic User Info
     var username: String
     var userUID: String
     var userProfileURL: URL
+    var user: User?
     enum CodingKeys: CodingKey {
         case id
         case text
@@ -35,6 +35,7 @@ struct Post: Identifiable, Codable, Equatable, Hashable {
         case username
         case userUID
         case userProfileURL
+        case user
     }
 }
 
