@@ -77,7 +77,7 @@ struct ReusablePostView: View {
         .simultaneousGesture(
                DragGesture().onChanged({
                    let isScrollDown = 0 < $0.translation.height
-                   print(isScrollDown)
+     //              print(isScrollDown)
                }))
        
         .refreshable {
@@ -122,7 +122,7 @@ struct ReusablePostView: View {
             .onAppear {
                 /// When last post appears fetch New Post if present
                 if post.id == posts.last?.id && paginationDoc != nil {
-                    print("Fetch New Posts")
+  //                  print("Fetch New Posts")
                     Task {
                         await fetchPosts()
                     }

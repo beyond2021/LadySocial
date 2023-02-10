@@ -69,7 +69,7 @@ struct ProfileActionButtonView: View {
         }
     }
     func followUser() {
-        print("follow User")
+     //   print("follow User")
         
         Task {
             let userID = user.userUID
@@ -92,7 +92,7 @@ struct ProfileActionButtonView: View {
         
     }
     func unFollowUser() {
-        print("Unfollow User")
+      //  print("Unfollow User")
         Task {
             let userID = user.userUID
             guard let CUser = Auth.auth().currentUser?.uid else {return}

@@ -28,9 +28,9 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text(userID)
-                Text(currentUserID)
-                Text(myProfile?.userUID ?? "")
+//                Text(userID)
+//                Text(currentUserID)
+//                Text(myProfile?.userUID ?? "")
                 if userID == Auth.auth().currentUser?.uid {
                    
                     
@@ -48,7 +48,7 @@ struct ProfileView: View {
                         ProgressView()
                     }
                 } else {
-                    Text("Not Current User")
+//                    Text("Not Current User")
                     
                     if  let myProfile  {
                         
