@@ -64,7 +64,7 @@ struct ReusableProfileContent: View {
                  This is why we create a reuable post view.
                  It fetches all the post associated with the user
                  */
-                ReusablePostView(basedOnUID: true, showHeader:  false, uid: user.userUID, posts: $fetchedPosts)
+                ReusablePostView(basedOnUID: true, showHeader:  showHeader, uid: user.userUID, posts: $fetchedPosts)
                 
             }
             .padding(15)

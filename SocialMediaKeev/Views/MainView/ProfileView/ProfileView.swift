@@ -36,7 +36,7 @@ struct ProfileView: View {
                     
                     if  let myProfile  {
                         Text(" Current User")
-                        ReusableProfileContent(user: myProfile)
+                        ReusableProfileContent(user: myProfile, showHeader: false)
                             .refreshable {
                                 // MARK: Refresh User Data
                                 self.myProfile = nil

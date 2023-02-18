@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 struct ReusablePostView: View {
     var basedOnUID: Bool = false
-    var showHeader: Bool = false
+    var showHeader: Bool = true
     var uid: String = ""
     @Binding var posts:[Post]
     //MARK: View Properties
@@ -22,6 +22,7 @@ struct ReusablePostView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             if showHeader {
+                HeaderView()
                 LazyVStack {
                     if isFetching {
                         ProgressView()
@@ -48,7 +49,7 @@ struct ReusablePostView: View {
                 
                 
             }
-            HeaderView()
+          //  HeaderView()
             LazyVStack {
                 if isFetching {
                     ProgressView()
