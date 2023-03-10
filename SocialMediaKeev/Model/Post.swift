@@ -13,8 +13,8 @@ import FirebaseFirestoreSwift
 struct Post: Identifiable, Codable, Equatable, Hashable {
     @DocumentID var id: String?
     var text: String
-    var imageURL: URL?
-    var imageReferenceID: String = ""
+    var imageURLs: [URL] = []
+    var imageReferenceIDs: [String] = []
     var publishedDate: Date = Date()
     var likedIDs: [String] = []
     var dislikedIDs: [String] = []
@@ -26,8 +26,8 @@ struct Post: Identifiable, Codable, Equatable, Hashable {
     enum CodingKeys: CodingKey {
         case id
         case text
-        case imageURL
-        case imageReferenceID
+        case imageURLs
+        case imageReferenceIDs
         case publishedDate
         case likedIDs
         case dislikedIDs

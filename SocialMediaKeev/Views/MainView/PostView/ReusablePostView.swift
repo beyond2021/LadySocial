@@ -48,32 +48,33 @@ struct ReusablePostView: View {
                 .padding(15)
                 
                 
-            }
-          //  HeaderView()
-            LazyVStack {
-                if isFetching {
-                    ProgressView()
-                        .padding(.top, 30)
-                    
-                } else {
-                    if posts.isEmpty {
-                        /// No post found on firebase
-                        Text("No Posts Found")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                            .padding(.top, 38)
+            } else {
+                //  HeaderView()
+                LazyVStack {
+                    if isFetching {
+                        ProgressView()
+                            .padding(.top, 30)
                         
                     } else {
-                        /// Display post
-                        Posts()
+                        if posts.isEmpty {
+                            /// No post found on firebase
+                            Text("No Posts Found")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                                .padding(.top, 38)
+                            
+                        } else {
+                            /// Display post
+                            Posts()
+                        }
+                        
+                        
                     }
                     
-                    
                 }
-                
+                .padding(15)
             }
-            .padding(15)
-       }
+        }
         //MARK: Scrolling- TODO
         .simultaneousGesture(
                DragGesture().onChanged({
@@ -169,11 +170,11 @@ struct ReusablePostView: View {
             
             
             let docs = try await query.getDocuments()
-            let fetchPosts = docs.documents.compactMap { doc -> Post? in
+            let fetchedPosts = docs.documents.compactMap { doc -> Post? in
                 try? doc.data(as: Post.self)
             }
             await MainActor.run(body: {
-                posts.append(contentsOf: fetchPosts)
+                posts.append(contentsOf: fetchedPosts)
                 /// Saving the last fetch document so that it can be used for pagination
                 paginationDoc = docs.documents.last // PAGINATION
                 isFetching = false
