@@ -39,16 +39,20 @@ struct HeaderView: View {
                                     .foregroundColor(.gray)
                                 
                                 HStack(alignment: .bottom, spacing: 10) {
-                                    Text("Latest Womens Acheivments")
+                                    Text("MARIA's Womens Acheivments")
                                         .font(.title.bold())
+                                        .foregroundColor(.white)
                                     
                                     Image(systemName: "checkmark.seal.fill")
-                                        .foregroundColor(.blue)
+                                        .imageScale(.large)
+                                        .foregroundColor(.teal)
                                         .background{
                                             Circle()
                                                 .fill(.white)
                                                 .padding(3)
                                         }
+                                        //.position(x: 0, y: 50)
+                                        
                                 }
                                 
                                 Label {
@@ -59,6 +63,7 @@ struct HeaderView: View {
                                 } icon: {
                                     Text("6,000")
                                         .fontWeight(.semibold)
+                                        .foregroundColor(.teal)
                                 }
                                 .font(.caption)
                             }

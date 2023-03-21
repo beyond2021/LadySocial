@@ -76,11 +76,11 @@ struct ReusablePostView: View {
             }
         }
         //MARK: Scrolling- TODO
-        .simultaneousGesture(
-               DragGesture().onChanged({
-                   let isScrollDown = 0 < $0.translation.height
-     //              print(isScrollDown)
-               }))
+//        .simultaneousGesture(
+//               DragGesture().onChanged({
+//                   let isScrollDown = 0 < $0.translation.height
+//                   print(isScrollDown)
+//               }))
        
         .refreshable {
             /// Scroll to Refresh
